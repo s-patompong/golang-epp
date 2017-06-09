@@ -3,7 +3,7 @@ package nominetuk
 // System setting
 const (
 	EppUrl = "epp.nominet.org.uk:700"
-	LogXml = false
+	LogXml = true
 )
 
 // Frame config
