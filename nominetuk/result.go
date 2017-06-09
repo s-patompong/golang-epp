@@ -7,9 +7,9 @@ import (
 
 // Result represents an EPP <result> element.
 type Result struct {
-	Code    int    `xml:"code,attr"`
-	Message string `xml:"msg"`
-	ExtValue
+	Code     int    `xml:"code,attr", json:"code"`
+	Message  string `xml:"msg", json:"message"`
+	ExtValue `json:"ext_value"`
 }
 
 // IsError determines whether an EPP status code is an error.
@@ -31,7 +31,8 @@ func (r *Result) IsFatal() bool {
 }
 
 type ExtValue struct {
-	name, reason string
+	name   string `json:"name"`
+	reason string `json:"reason"`
 }
 
 func init() {

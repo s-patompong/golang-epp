@@ -32,14 +32,23 @@ func (domain *Domain) processDomainInfo(domainName string) (DomainInfoResponse, 
 }
 
 type DomainInfoResponse struct {
-	Result
-	Name, Roid, Registrant, ClID, CrID, CrDate, UpID, UpDate, ExDate string
-	Ns                                                               []string
-	DomainInfoExtension
+	Result              `json:"result"`
+	Name                string   `json:"name"`
+	Roid                string   `json:"roId"`
+	Registrant          string   `json:"registrant"`
+	ClID                string   `json:"clId"`
+	CrID                string   `json:"crId"`
+	CrDate              string   `json:"crDate"`
+	UpID                string   `json:"upId"`
+	UpDate              string   `json:"upDate"`
+	ExDate              string   `json:"exDate"`
+	Ns                  []string `json:"ns"`
+	DomainInfoExtension `json:"extension"`
 }
 
 type DomainInfoExtension struct {
-	RegStatus, IgnoredField string
+	RegStatus    string `json:"reg_status"`
+	IgnoredField string `json:"ignore_field"`
 }
 
 func init() {
