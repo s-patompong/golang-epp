@@ -1,7 +1,6 @@
 package nominetuk
 
 import (
-	"fmt"
 	"github.com/nbio/xx"
 	"golang-epp/frames"
 )
