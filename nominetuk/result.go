@@ -1,7 +1,7 @@
 package nominetuk
 
 import (
-	"fmt"
+	"encoding/json"
 	"github.com/nbio/xx"
 )
 
@@ -20,7 +20,8 @@ func (r *Result) IsError() bool {
 
 // Error implements the error interface.
 func (r *Result) Error() string {
-	return fmt.Sprintf("EPP result code %d: %s. Name: %s. Reason: %s.", r.Code, r.Message, r.ExtValue.name, r.ExtValue.reason)
+	j, _ := json.Marshal(r)
+	return string(j)
 }
 
 // IsFatal determines whether an EPP status code is a fatal response,
@@ -43,7 +44,7 @@ func init() {
 		return nil
 	})
 	scanResponse.MustHandleCharData(path+"> msg", func(c *xx.Context) error {
-		c.Value.(*response_).Result.Message = string(c.CharData)
+		c.Value.(*response_).Result.Message = trimString(string(c.CharData))
 		return nil
 	})
 	scanResponse.MustHandleCharData(path+"> extValue > value > name", func(c *xx.Context) error {
@@ -51,7 +52,7 @@ func init() {
 		return nil
 	})
 	scanResponse.MustHandleCharData(path+"> extValue > reason", func(c *xx.Context) error {
-		c.Value.(*response_).Result.ExtValue.reason = string(c.CharData)
+		c.Value.(*response_).Result.ExtValue.reason = trimString(string(c.CharData))
 		return nil
 	})
 }
