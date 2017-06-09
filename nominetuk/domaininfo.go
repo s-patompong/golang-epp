@@ -2,7 +2,7 @@ package nominetuk
 
 import (
 	"github.com/nbio/xx"
-	"golang-epp/frames"
+	"github.com/pangpondpon/golang-epp/frames"
 )
 
 // Encode domain info

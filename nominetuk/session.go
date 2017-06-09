@@ -2,7 +2,7 @@ package nominetuk
 
 import (
 	"bytes"
-	"golang-epp/frames"
+	"github.com/pangpondpon/golang-epp/frames"
 )
 
 // Login initializes an authenticated EPP session.
