@@ -9,7 +9,7 @@ const (
 // Frame config
 const (
 	// Frame file name and folder config
-	FrameDir        = "src/frames"
+	FrameDir        = "frames"
 	FrameLogin      = "login.xml"
 	FrameDomainInfo = "domain-info.xml"
 

@@ -2,6 +2,7 @@ package nominetuk
 
 import (
 	"bytes"
+	"golang-epp/frames"
 )
 
 // Login initializes an authenticated EPP session.
@@ -31,7 +32,7 @@ func (c *Conn) writeLogin(user, password string) error {
 }
 
 func encodeLogin(buf *bytes.Buffer, user, password, version, language string) error {
-	err := writeToBuffer(buf, FrameLogin, map[string]string{
+	err := writeToBuffer(buf, frames.Login(), map[string]string{
 		"username":   user,
 		"password":   password,
 		"version":    version,

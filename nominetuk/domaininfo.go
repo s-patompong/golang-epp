@@ -1,12 +1,14 @@
 package nominetuk
 
 import (
+	"fmt"
 	"github.com/nbio/xx"
+	"golang-epp/frames"
 )
 
 // Encode domain info
 func (domain *Domain) encodeDomainInfo(domainName string) error {
-	err := writeToBuffer(&domain.conn.buf, FrameDomainInfo, map[string]string{
+	err := writeToBuffer(&domain.conn.buf, frames.DomainInfo(), map[string]string{
 		"domain": domainName,
 	})
 	return err

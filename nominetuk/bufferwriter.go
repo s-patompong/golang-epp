@@ -6,14 +6,8 @@ import (
 )
 
 // Write the map to buffer
-func writeToBuffer(buf *bytes.Buffer, frameFileName string, m map[string]string) error {
+func writeToBuffer(buf *bytes.Buffer, xml string, m map[string]string) error {
 	buf.Reset()
-
-	// Read the file to xml
-	xml, err := getFrameStringByFrameName(frameFileName)
-	if err != nil {
-		return err
-	}
 
 	m["clTRID"] = generateclTRID()
 
