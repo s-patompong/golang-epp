@@ -7,8 +7,8 @@ import (
 
 // Result represents an EPP <result> element.
 type Result struct {
-	Code     int    `xml:"code,attr", json:"code"`
-	Message  string `xml:"msg", json:"message"`
+	Code     int    `xml:"code,attr" json:"code"`
+	Message  string `xml:"msg" json:"message"`
 	ExtValue `json:"ext_value"`
 }
 
